@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Blocktopia </title>
+
+        <meta charset="UTF-8">
+        <meta name="author" content="Kyle Lopez, Xian Manango">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="revised" content="13/10/24">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+            @font-face {
+                font-family: 'minecraftten';
+                src: url(../minecraftten.ttf);
+            }
+            @font-face {
+                font-family: 'monocraft';
+                src: url(../Monocraft.ttf);
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                background-color: #12161a;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                font-family: 'Poppins';
+            }
+            .navbar {
+                background-color: #252322;
+                padding: 3px;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+            .navbar img {
+                margin-left: 6px;
+                margin-top: 5px;
+            }
+            .navbar h1 {
+                position: fixed;
+                margin-left: 85px;
+                margin-top: 20px;
+                font-family: 'minecraftten';
+                color: white;
+            }
+            .bnavbar {
+                background-color: rgba(44, 42, 41, 0.5);
+                backdrop-filter: blur(10px);
+                padding: 20px 0;
+                width: 100%;
+                position: fixed;
+                top: 85px;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+            }
+
+            .bnavbar a {
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin: 0 15px;
+            }
+            .bnavbar a:hover {
+                color: #73b356;
+                transition: 0.3s;
+            }
+            .banner {
+                width: 100%;
+                height: 300px;
+                background-image: url(../images/mobs/hostile/banner.png);
+                background-size: cover;
+                background-position: center;
+                margin-top: 100px;
+            }
+            .hostilemobs {
+                font-family: 'minecraftten';
+                color: white;
+                text-shadow: 5px 5px black; 
+                position: relative;
+                top: -80px;
+                left: 50px;
+            }
+            .container {
+                width: 100%;
+                text-align: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .search-container {
+                position: relative;
+                width: 300px;
+                margin: 0px auto;
+                margin-bottom: 50px;
+            }
+            #searchBar {
+                width: 100%;
+                padding: 10px 0px 10px 20px;
+                border: 1px solid #ccc;
+                border-radius: 20px;
+                font-size: 16px;
+                outline: none;
+            }
+
+            #searchBar:focus {
+                border-color: #73b356;
+                box-shadow: 0 0 5px rgba(255, 57, 196, 0.5);
+            }
+            .search-icon {
+                position: absolute;
+                right: -16px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: black;
+                border-radius: 50%;
+                padding: 6px;
+                width: 16px;
+                height: 16px;
+            }
+
+            .search-icon img {
+                width: 16px;
+                height: 16px;
+            }
+            .mobs-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .mob {
+                background-color: #1e2124;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                padding: 20px 10px 20px 10px;
+                width: calc(33.33% - 80px);
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                flex-grow: 0;
+                flex-shrink: 0;
+                color: white;
+            }
+            .mob:hover {
+                background-color: #333;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                transform: scale(1.1);
+                transition: 0.3s;
+            }
+            .mob:not(:hover) {
+                background-color: #1e2124;
+                box-shadow: none;
+                transform: scale(1);
+                transition: 0.3s;
+            }
+            .mob img {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <h1>Blocktopia</h1>
+            <a href="../index.html">
+                <img src="../images/logo.png" width="70px" height="70px">
+            </a>
+        </div>
+        <div class="bnavbar">
+            <a href="../index.html">Home</a>
+            <a href="../mobs.html">Mobs</a>
+            <a href="../builds.html">Builds</a>
+        </div>
+        <div class="banner">
+        </div>
+        <h1 class="hostilemobs">Hostile Mobs</h1>
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="searchBar" onkeyup="searchMobs()" placeholder="Search for mobs..." title="Type in a mob name">
+                <div class="search-icon">
+                    <img src="../images/mobs/hostile/search.png" alt="Search Icon">
+                </div>
+            </div>
+            <div class="scroll-container">
+                <div class="mobs-list" id="mobslist">
+                    <div class="mob">
+                        <a href="hostile/blaze.html">
+                            <img src="../images/mobs/hostile/blaze.png">
+                        </a>
+                        <p>Blaze</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/creeper.html">
+                            <img src="../images/mobs/hostile/creeper.png">
+                        </a>
+                        <p>Creeper</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/drowned.html">
+                            <img src="../images/mobs/hostile/drowned.png">
+                        </a>
+                        <p>Drowned</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/enderman.html">
+                            <img src="../images/mobs/hostile/enderman.png">
+                        </a>
+                        <p>Enderman</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/ghast.html">
+                            <img src="../images/mobs/hostile/ghast.png">
+                        </a>
+                        <p>Ghast</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/phantom.html">
+                            <img src="../images/mobs/hostile/phantom.png">
+                        </a>
+                        <p>Phantom</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/skeleton.html">
+                            <img src="../images/mobs/hostile/skeleton.png">
+                        </a>
+                        <p>Skeleton</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/slime.html">
+                            <img src="../images/mobs/hostile/slime.png">
+                        </a>
+                        <p>Slime</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/spider.html">
+                            <img src="../images/mobs/hostile/spider.png">
+                        </a>
+                        <p>Spider</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/witch.html">
+                            <img src="../images/mobs/hostile/witch.png">
+                        </a>
+                        <p>Witch</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/witherskeleton.html">
+                            <img src="../images/mobs/hostile/witherskeleton.png">
+                        </a>
+                        <p>Wither Skeleton</p>
+                    </div>
+                    <div class="mob">
+                        <a href="hostile/zombie.html">
+                            <img src="../images/mobs/hostile/zombie.png">
+                        </a>
+                        <p>Zombie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    <script>
+        function searchMobs() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const mobs = document.getElementsByClassName('mob');
+            
+            for (let i = 0; i < mobs.length; i++) {
+                const mobName = mobs[i].getElementsByTagName('p')[0].textContent.toLowerCase();
+                
+                if (mobName.includes(input)) {
+                    mobs[i].classList.remove('hidden'); // Show matching mobs
+                } else {
+                    mobs[i].classList.add('hidden'); // Hide non-matching mobs
+                }
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Blocktopia </title>
+
+        <meta charset="UTF-8">
+        <meta name="author" content="Kyle Lopez, Xian Manango">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="revised" content="13/10/24">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+            @font-face {
+                font-family: 'minecraftten';
+                src: url(minecraftten.ttf);
+            }
+            @font-face {
+                font-family: 'monocraft';
+                src: url(Monocraft.ttf);
+            }
+            body {
+                min-height: 100vh;
+                background: linear-gradient(#514c66, #d58650);
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+            .navbar {
+                background-color: #252322;
+                padding: 3px;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+            .navbar img {
+                margin-left: 6px;
+                margin-top: 5px;
+            }
+            .navbar h1 {
+                position: fixed;
+                margin-left: 85px;
+                margin-top: 20px;
+                font-family: 'minecraftten';
+                color: white;
+            }
+            .bnavbar {
+                background-color: rgba(44, 42, 41, 0.5);
+                backdrop-filter: blur(10px);
+                padding: 20px 0;
+                width: 100%;
+                position: fixed;
+                top: 85px;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+            }
+
+            .bnavbar a {
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin: 0 15px;
+            }
+            .bnavbar a:hover {
+                color: #73b356;
+                transition: 0.3s;
+            }
+            section {
+                position: relative;
+                width: 100%;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            section #text {
+                position: absolute;
+                color: white;
+                font-family: 'minecraftten';
+                font-size: 10vw;
+                text-align: center;
+                z-index: 1;
+                text-shadow: 4px 4px black;
+            }
+            section::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: linear-gradient(to top, #252322, transparent);
+                z-index: 10;
+            }
+            section img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                pointer-events: none;
+            }
+            section #zombiechase {
+                width: 300px;
+                height: 100px;
+                margin-top: 540px;
+            }
+            section #foreground {
+                margin-top: 100px;
+            }
+            .selectmobtype {
+                position: relative;
+                background-color: #252322;
+                padding: 30px;
+                display: flex;
+            }
+            .img1 {
+                margin-top: 155px;
+                margin-left: 260px;
+                margin-bottom: 20px;
+            }
+            .img2 {
+                margin-top: 155px; 
+                margin-left: 150px;
+                margin-bottom: 20px;
+            }
+            .img1:hover, .img2:hover {
+                transform: translateY(-10px);
+                transition: 0.5s;
+            }
+            .img1:not(:hover), .img2:not(:hover) {
+                transform: translateY(10px);
+                transition: 0.5s;
+            }
+            .selectmobtype .text1, .selectmobtype .text2  {
+                font-family: 'minecraftten';
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <h1>Blocktopia</h1>
+            <a href="index.html">
+                <img src="images/logo.png" width="70px" height="70px">
+            </a>
+        </div>
+        <div class="bnavbar">
+            <a href="index.html">Home</a>
+            <a href="mobs.html">Mobs</a>
+            <a href="builds.html">Builds</a>
+        </div>
+        <section>
+            <h1 id="text">Mobs</h1>
+            <img src="images/mobs/main/mountains.png" id="mountains">
+            <img src="images/mobs/main/foreground.png" id="foreground">
+            <img src="images/mobs/main/zombiechase.png" id="zombiechase">
+        </section>
+        <div class="selectmobtype" id="select">
+            <div class="img1">
+                <a href="mobs/hostile.html">
+                    <img src="images/mobs/main/hostile.png" width="400px" height="400px">
+                </a>
+                <h1 class="text1">Hostile Mobs</h1>
+            </div>
+            <div class="img2">
+                <a href="mobs/boss.html">
+                    <img src="images/mobs/main/boss.png" width="400px" height="400px">
+                </a>
+                <h1 class="text2">Boss Mobs</h1>
+            </div>
+        </div>
+
+        <script>
+            let text = document.getElementById('text');
+            let mountains = document.getElementById('mountains');
+            let foreground = document.getElementById('foreground');
+            let zombiechase = document.getElementById('zombiechase');
+
+            window.addEventListener('scroll', function(){
+                let value = window.scrollY;
+
+                zombiechase.style.left = value * 0.2 + '%';
+                zombiechase.style.top = value * -0.12 + 'px'
+                foreground.style.top = value * -0.12 + 'px';
+                mountains.style.top = value * 0.25 + 'px';
+            })
+        </script>
+    </body>
+</html>
